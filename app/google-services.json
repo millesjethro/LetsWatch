@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "482166611508",
+    "project_id": "letswatch-de7ce",
+    "storage_bucket": "letswatch-de7ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482166611508:android:ca316cba1dc5610e81f461",
+        "android_client_info": {
+          "package_name": "com.auf.letswatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482166611508-j8usutki6m072mqflc11em3tf707s07g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.auf.letswatch",
+            "certificate_hash": "e6f50916fbba483cf77a1552062c3677851c2fe0"
+          }
+        },
+        {
+          "client_id": "482166611508-bfo5umppcrfge5mn7issd0ge2579t9u1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnyTnoRF-7-RF469in_eTMeqXquGY3pT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482166611508-bfo5umppcrfge5mn7issd0ge2579t9u1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
