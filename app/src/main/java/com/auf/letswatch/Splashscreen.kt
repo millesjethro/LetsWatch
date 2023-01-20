@@ -15,7 +15,7 @@ import kotlin.Long
 class Splashscreen : AppCompatActivity() {
     private lateinit var binding: ActivitySplashscreenBinding
     @RequiresApi(Build.VERSION_CODES.R)
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivitySplashscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         hideMenus()
 
-        //Putting the nav controller
         val navController = findNavController(R.id.fragment)
         binding.bottomNav.setupWithNavController(navController)
     }

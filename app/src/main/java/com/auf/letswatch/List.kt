@@ -23,7 +23,6 @@ class List : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListene
 
     private lateinit var TitleAdapter: ListsAdapters
     private lateinit var movieData: ArrayList<Title>
-
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
     private var type: String = ""
@@ -32,10 +31,7 @@ class List : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListene
     private var totalpage: Int = 0
 
     @DelicateCoroutinesApi
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentListBinding.inflate(inflater, container, false)
 
         movieData = arrayListOf()
@@ -58,10 +54,6 @@ class List : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListene
         type = selectedMovieType.lowercase(Locale.ROOT).replace(' ','_')
         val selectedMovieProvider = binding.MovieProvider.selectedItem.toString()
         provider = hash[selectedMovieProvider] as Int
-
-
-        Log.e("", type)
-        Log.e("", provider.toString())
 
         getTitles()
         binding.btnPrevpage.visibility = View.INVISIBLE
@@ -109,7 +101,6 @@ class List : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListene
                 binding.list.scrollToPosition(0);
                 pagenumber = 1
                 getTitles()
-
             }
             (R.id.MovieType)->{
                 val selectedMovieType = binding.MovieType.selectedItem.toString()
@@ -150,6 +141,7 @@ class List : Fragment(), AdapterView.OnItemSelectedListener, View.OnClickListene
                     binding.btnPrevpage.visibility = View.VISIBLE
                 }
                 else if(pagenumber == totalpage){
+                    pagenumber = totalpage
                     binding.btnNextpage.visibility = View.INVISIBLE
                 }
                 binding.txtPagenumber.text = pagenumber.toString()

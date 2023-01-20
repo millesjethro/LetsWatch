@@ -28,17 +28,10 @@ class Search : Fragment() {
     private lateinit var movieData: ArrayList<Title>
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
     @DelicateCoroutinesApi
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
-
         searchData = arrayListOf()
         movieData = arrayListOf()
         searchAdapter = SearchListAdapter(searchData,requireContext())
@@ -70,7 +63,7 @@ class Search : Fragment() {
                     getSearch(binding.searchListTitle.text.toString())
                 }
                 else{
-                    binding.listrv.layoutManager = LlayoutManager
+                    binding.listrv.layoutManager = GlayoutManager
                     binding.listrv.adapter = TitleAdapter
                     getTitles()
                 }

@@ -29,16 +29,6 @@ class Favorite : Fragment(), MovieDataBaseAdapter.MovieDBAdaptersInterface {
     private lateinit var coroutine: CoroutineContext
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -18,9 +18,7 @@ class Register : AppCompatActivity(), View.OnClickListener{
 
     private lateinit var database: DatabaseReference
     private lateinit var binding: ActivityRegisterBinding
-    //Checking if the password is in correct format
     private var isPassCorrect = false
-    //Checking if the username is in correct format
     private var isUserNameCorrect = false
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -42,8 +40,6 @@ class Register : AppCompatActivity(), View.OnClickListener{
 
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
-
-                //Checking the length of the username
                 if(binding.edttextUsername.text?.length!! <6){
                     binding.edttextUsername.error = "Minimun of 6 characters"
                     isUserNameCorrect = false
@@ -54,11 +50,9 @@ class Register : AppCompatActivity(), View.OnClickListener{
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                //If username has a duplicate in the database
                 if (snapshot.hasChild(binding.edttextUsername.text.toString())){
                     binding.edttextUsername.error = "Username Already Used"
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -71,13 +65,10 @@ class Register : AppCompatActivity(), View.OnClickListener{
 
             }
 
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
 
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
-                //Checking if password has the length and in the right format
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if(binding.edttextPassword.text?.length!! < 6){
                     binding.edttextPassword.error = "Minimum of 6 Characters"
                     isPassCorrect = false
@@ -93,13 +84,10 @@ class Register : AppCompatActivity(), View.OnClickListener{
                 else{
                     isPassCorrect = true
                 }
-
-
             }
         })
         binding.btnBack.setOnClickListener(this)
         binding.btnRRegister.setOnClickListener(this)
-        //For the birthday
         listen()
     }
 
@@ -205,7 +193,6 @@ class Register : AppCompatActivity(), View.OnClickListener{
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
     }
 
-    //Password Checker if it is in the right format
     private fun checkString(str: String): Boolean {
         var ch: Char
         var capitalFlag = false

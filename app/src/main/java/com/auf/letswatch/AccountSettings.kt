@@ -23,16 +23,7 @@ class AccountSettings : Fragment(), ValueEventListener {
     private val binding get() = _binding!!
     private lateinit var database: DatabaseReference
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentAccountSettingsBinding.inflate(inflater, container, false)
         database = FirebaseDatabase.getInstance().getReferenceFromUrl("https://letswatch-de7ce-default-rtdb.firebaseio.com/")
         database.child("Users").addListenerForSingleValueEvent(this)
@@ -56,11 +47,9 @@ class AccountSettings : Fragment(), ValueEventListener {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
-
             override fun afterTextChanged(p0: Editable?) {
                 database.child("Users").addListenerForSingleValueEvent(object: ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
@@ -79,11 +68,9 @@ class AccountSettings : Fragment(), ValueEventListener {
                             }
                         }
                     }
-
                     override fun onCancelled(error: DatabaseError) {
 
                     }
-
                 })
             }
         })
@@ -116,15 +103,11 @@ class AccountSettings : Fragment(), ValueEventListener {
             binding.txtAccbday.text = getBdate
             binding.txtAccname.text = getUsrname
             binding.txtAccuname.text = username.toString()
-
-
         }
     }
 
     override fun onCancelled(error: DatabaseError) {
 
     }
-
-
 
 }

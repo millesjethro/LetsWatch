@@ -44,13 +44,9 @@ class movietitle : DialogFragment(){
     private lateinit var favfrag: Favorite
     private var usernm: String = ""
 
-    private var episodes: String = ""
 
     @DelicateCoroutinesApi
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentMovietitleBinding.inflate(inflater, container, false)
         val movieID = requireArguments().getString("titleID")
         movieData = arrayListOf()
@@ -61,7 +57,6 @@ class movietitle : DialogFragment(){
         binding.sourcesrv.layoutManager = layoutManager
         binding.sourcesrv.adapter = sources
 
-
         favfrag = Favorite()
         if (movieID != null) {
             Log.e("",movieID)
@@ -71,12 +66,10 @@ class movietitle : DialogFragment(){
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE);
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.BLACK));
 
-
         val sharedPreferences = this.activity?.getSharedPreferences("MY_PROFILE", Context.MODE_PRIVATE)
         val username = sharedPreferences?.getString(USERNAME_KEY,"")
 
         usernm = username.toString()
-
 
         Realm.init(requireContext())
 
@@ -88,11 +81,6 @@ class movietitle : DialogFragment(){
         database = FirebaseDatabase.getInstance().getReferenceFromUrl("https://letswatch-de7ce-default-rtdb.firebaseio.com/")
 
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
     @DelicateCoroutinesApi
@@ -197,16 +185,7 @@ class movietitle : DialogFragment(){
         }
     }
 
-    fun addBrew(
-        username: String,
-        title: String,
-        poster: String,
-        status: String,
-        release_date: String,
-        end_year: Int,
-        user_rating: Double,
-        id: String
-    ) {
+    fun addBrew(username: String, title: String, poster: String, status: String, release_date: String, end_year: Int, user_rating: Double, id: String) {
         val scope = CoroutineScope(coroutine)
         scope.launch(Dispatchers.IO){
             operation.InsertMovie(username, status, end_year, id, release_date, title,poster,user_rating)

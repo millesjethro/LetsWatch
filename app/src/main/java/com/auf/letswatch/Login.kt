@@ -82,7 +82,6 @@ class Login : AppCompatActivity(), View.OnClickListener, ValueEventListener {
             }
             else {
                 Toast.makeText(applicationContext, "Wrong Credentials", Toast.LENGTH_SHORT).show()
-                Log.e("",getPass)
             }
         }
         else{
@@ -102,4 +101,5 @@ class Login : AppCompatActivity(), View.OnClickListener, ValueEventListener {
             startActivity(intent)
         }
     }
+
 }

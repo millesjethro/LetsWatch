@@ -98,8 +98,6 @@
         <item>TV Special</item>
         <item>TV Miniseries</item>
         <item>Short Film</item>
-        <item>Netflix</item>
-        <item>Hulu</item>
     </string-array>
     <string-array name="MovieID">
         <item>Netflix</item>

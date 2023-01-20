@@ -39,11 +39,7 @@ class Home : Fragment() {
     private var movie = false
 
     @DelicateCoroutinesApi
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         movieData = arrayListOf()
@@ -159,7 +155,7 @@ class Home : Fragment() {
         binding.upcomingNetflix.visibility = View.INVISIBLE
     }
     fun visibilityChecker(){
-        if(movie && series && vudu && movie){
+        if(movie && series && vudu && netflix){
             binding.txtmovie.visibility = View.VISIBLE
             binding.txtnetflix.visibility = View.VISIBLE
             binding.txtseries.visibility = View.VISIBLE
